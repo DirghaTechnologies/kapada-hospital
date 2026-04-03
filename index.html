@@ -4,14 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kapada Hospital – Linen & Clothing Centre</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --red: #E8202A;
-    --red-dark: #B5181F;
     --red-glow: rgba(232,32,42,0.35);
     --black: #0D0D0D;
-    --dark: #161616;
     --card: #1C1C1C;
     --border: rgba(232,32,42,0.2);
     --white: #FFFFFF;
@@ -64,43 +62,31 @@
     align-items: center;
   }
 
-  /* ── Header ── */
+  /* ── Logo ── */
   .logo-wrap {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 14px;
+    gap: 16px;
     margin-bottom: 28px;
     animation: fadeDown 0.7s ease both;
   }
 
-  .logo-icon {
-    width: 88px;
-    height: 88px;
-    background: var(--red);
-    border-radius: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 0 1px rgba(255,255,255,0.06), 0 8px 40px var(--red-glow);
-    position: relative;
+  .logo-img-wrap {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
     overflow: hidden;
+    box-shadow: 0 0 0 3px rgba(232,32,42,0.4), 0 8px 40px var(--red-glow);
     animation: pulse 3s ease-in-out infinite;
+    background: white;
   }
 
-  .logo-icon::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent 60%);
-  }
-
-  .logo-icon svg {
-    width: 50px;
-    height: 50px;
-    fill: white;
-    position: relative;
-    z-index: 1;
+  .logo-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .brand-name {
@@ -232,63 +218,82 @@
   }
 
   .qr-card {
-    background: var(--card);
-    border: 1px solid var(--border);
+    background: var(--white);
     border-radius: 18px;
-    padding: 28px 24px;
+    padding: 28px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .qr-card::before {
-    content: '';
-    position: absolute;
-    top: -60px; right: -60px;
-    width: 180px; height: 180px;
-    background: radial-gradient(circle, rgba(232,32,42,0.12), transparent 70%);
-    pointer-events: none;
-  }
-
-  .qr-card-header {
-    display: flex;
-    align-items: center;
     gap: 10px;
-    width: 100%;
-    flex-wrap: wrap;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.5);
   }
 
-  .qr-badge {
-    background: #c0392b;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.7rem;
+  .we-accept {
+    font-size: 0.8rem;
     font-weight: 700;
+    color: #333;
     letter-spacing: 1px;
     text-transform: uppercase;
+    margin-bottom: -2px;
   }
 
-  .qr-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.3rem;
-    letter-spacing: 2px;
-    color: var(--white);
+  /* FonePay logo */
+  .fonepay-logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .fone-box {
+    background: #E8202A;
+    color: white;
+    font-weight: 800;
+    font-size: 1.15rem;
+    padding: 5px 10px;
+    border-radius: 6px 0 0 6px;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: -0.3px;
+    display: flex;
+    align-items: center;
+  }
+
+  .fone-arrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 10px solid #E8202A;
+    margin-left: 2px;
+    margin-right: -1px;
+    position: relative;
+    top: 0;
+  }
+
+  .pay-text {
+    color: #111;
+    font-weight: 700;
+    font-size: 1.55rem;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: -1px;
+    padding-left: 6px;
+  }
+
+  .fonepay-nepali {
+    font-size: 0.8rem;
+    color: #555;
+    text-align: center;
+    font-family: sans-serif;
+    margin-top: -2px;
   }
 
   .qr-frame {
-    background: white;
-    border-radius: 16px;
-    padding: 12px;
-    width: 210px;
-    height: 210px;
+    width: 260px;
+    height: 260px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.5);
     overflow: hidden;
+    margin: 6px 0;
   }
 
   .qr-frame img {
@@ -298,36 +303,20 @@
     display: block;
   }
 
-  .qr-hint {
-    font-size: 0.78rem;
-    color: var(--muted);
+  .qr-merchant {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #111;
     text-align: center;
-    max-width: 280px;
-    line-height: 1.6;
+    font-family: 'DM Sans', sans-serif;
   }
 
-  .qr-hint strong { color: #ff6b6b; }
-
-  .fonepay-label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 8px;
-    padding: 8px 14px;
-    font-size: 0.75rem;
-    color: var(--muted);
-    letter-spacing: 0.5px;
-  }
-
-  .fonepay-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: #E8202A;
-    flex-shrink: 0;
-    box-shadow: 0 0 6px #E8202A;
-    animation: blink 1.5s ease-in-out infinite;
+  .qr-terminal {
+    font-size: 0.85rem;
+    color: #444;
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
   }
 
   /* ── Address strip ── */
@@ -358,24 +347,33 @@
   .address-text { font-size: 0.78rem; line-height: 1.55; color: var(--muted); }
   .address-text strong { color: var(--white); display: block; font-size: 0.83rem; margin-bottom: 1px; }
 
-  /* ── Phone pill ── */
+  /* ── Phone pills ── */
+  .phone-group {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 40px;
+    animation: fadeIn 0.7s 0.8s ease both;
+  }
+
   .phone-pill {
+    flex: 1;
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    gap: 6px;
     background: rgba(232,32,42,0.1);
     border: 1px solid rgba(232,32,42,0.3);
     border-radius: 30px;
-    padding: 12px 24px;
-    font-size: 0.95rem;
+    padding: 12px 8px;
+    font-size: 0.83rem;
     font-weight: 600;
-    letter-spacing: 1px;
-    margin-bottom: 40px;
-    animation: fadeIn 0.7s 0.8s ease both;
+    letter-spacing: 0.3px;
     color: var(--white);
     text-decoration: none;
     transition: background 0.2s, box-shadow 0.2s;
     -webkit-tap-highlight-color: transparent;
+    text-align: center;
   }
 
   .phone-pill:hover, .phone-pill:active {
@@ -406,29 +404,22 @@
     to   { opacity: 1; }
   }
   @keyframes pulse {
-    0%,100% { box-shadow: 0 0 0 1px rgba(255,255,255,0.06), 0 8px 40px var(--red-glow); }
-    50%      { box-shadow: 0 0 0 6px rgba(232,32,42,0.12), 0 8px 60px rgba(232,32,42,0.5); }
-  }
-  @keyframes blink {
-    0%,100% { opacity: 1; }
-    50%      { opacity: 0.3; }
+    0%,100% { box-shadow: 0 0 0 3px rgba(232,32,42,0.4), 0 8px 40px var(--red-glow); }
+    50%      { box-shadow: 0 0 0 7px rgba(232,32,42,0.12), 0 8px 60px rgba(232,32,42,0.5); }
   }
 </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- Header -->
+  <!-- Header with official logo -->
   <div class="logo-wrap">
-    <div class="logo-icon">
-      <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-        <rect x="22" y="6" width="16" height="48" rx="4"/>
-        <rect x="6" y="22" width="48" height="16" rx="4"/>
-      </svg>
+    <div class="logo-img-wrap">
+      <img src="logo.jpg" alt="Kapada Hospital Logo" />
     </div>
     <div>
       <div class="brand-name">Kapada <span>Hospital</span></div>
-      <div class="brand-sub">Linen &amp; Clothing Centre · Kathmandu</div>
+      <div class="brand-sub">Your trusted partner for high-quality hospital textiles.</div>
     </div>
   </div>
 
@@ -470,6 +461,24 @@
       </div>
       <span class="arrow">→</span>
     </a>
+    <a href="https://wa.me/9779801471017?text=Namaskar%20sir,%20Can%20you%20send%20price%20details%20of%20your%20textile%20items"
+        target="_blank"
+        class="link-btn">
+
+        <div class="icon" style="background:#25D366;">
+            <!-- WhatsApp Icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+            <path d="M20.52 3.48A11.92 11.92 0 0012.02 0C5.39 0 .01 5.38.01 12c0 2.12.55 4.2 1.6 6.04L0 24l6.15-1.6A11.96 11.96 0 0012.02 24c6.63 0 12-5.38 12-12 0-3.2-1.25-6.21-3.5-8.52zM12.02 21.8c-1.85 0-3.67-.5-5.25-1.45l-.37-.22-3.65.95.98-3.56-.24-.37A9.8 9.8 0 1121.8 12c0 5.4-4.38 9.8-9.78 9.8zm5.38-7.36c-.29-.14-1.72-.85-1.99-.95-.27-.1-.47-.14-.67.14s-.77.95-.94 1.15c-.17.2-.34.22-.63.07-.29-.14-1.23-.45-2.35-1.44-.87-.78-1.46-1.75-1.63-2.04-.17-.29-.02-.45.13-.59.14-.14.29-.34.43-.51.14-.17.19-.29.29-.48.1-.2.05-.37-.02-.51-.07-.14-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.51.07-.78.37s-1.02 1-1.02 2.43 1.05 2.81 1.2 3.01c.14.2 2.06 3.14 5 4.4.7.3 1.25.48 1.67.61.7.22 1.34.19 1.85.12.56-.08 1.72-.7 1.96-1.37.24-.67.24-1.24.17-1.37-.07-.12-.26-.2-.55-.34z"/>
+            </svg>
+        </div>
+
+        <div class="text-group">
+            <span class="label">WhatsApp</span>
+            <span class="sublabel">Chat with us instantly</span>
+        </div>
+
+        <span class="arrow">→</span>
+        </a>
 
     <a href="https://maps.app.goo.gl/1eKaSeFhXrRENsDQA" target="_blank" rel="noopener" class="link-btn">
       <div class="icon gm-icon">
@@ -490,7 +499,7 @@
         <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm-1 17.93A8 8 0 014.07 13H7a14.5 14.5 0 001.9 5.5c-.97-.3-1.87-.78-2.9-1.57zM4.07 11A8 8 0 0111 4.07V7c-1.8.4-3.4 1.9-4.5 4H4.07zM13 4.07A8 8 0 0119.93 11H17.5C16.4 8.9 14.8 7.4 13 7V4.07zM13 19.93V17c1.8-.4 3.4-1.9 4.5-4h2.43A8 8 0 0113 19.93zM14.1 15H9.9A12.6 12.6 0 019 12c.1-1.1.4-2.1.9-3h4.2c.5.9.8 1.9.9 3-.1 1.1-.4 2.1-.9 3z"/></svg>
       </div>
       <div class="text-group">
-        <span class="label">Our Website</span>
+        <span class="label">Main Website</span>
         <span class="sublabel">kapadahospital.com.np</span>
       </div>
       <span class="arrow">→</span>
@@ -502,24 +511,24 @@
   <div class="section-label" style="animation-delay:0.5s">Payment QR</div>
   <div class="qr-section">
     <div class="qr-card">
-      <div class="qr-card-header">
-        <span class="qr-badge">FonePay</span>
-        <span class="qr-title">Scan &amp; Pay</span>
+
+      <p class="we-accept">We Accept</p>
+
+      <div class="fonepay-logo">
+        <span class="fone-box">fone</span>
+        <span class="fone-arrow"></span>
+        <span class="pay-text">pay</span>
       </div>
 
-
+      <p class="fonepay-nepali">नेपाल राष्ट्र बैंकबाट अनुमति प्राप्त</p>
 
       <div class="qr-frame">
-        <img
-          src="qr_image.jpeg"
-          alt="Kapada Hospital FonePay QR Code"
-          loading="lazy"
-        />
+        <img src="QR.jpeg" alt="Kapada Hospital FonePay QR Code" loading="lazy" />
       </div>
 
-      <p class="qr-hint">
-        Scan with any <strong>FonePay supported app</strong> — eSewa, Khalti, IME Pay, ConnectIPS &amp; more
-      </p>
+      <p class="qr-merchant">Kapada Hospital</p>
+      <p class="qr-terminal">Terminal : 2222020015463116</p>
+
     </div>
   </div>
 
@@ -527,19 +536,24 @@
   <div class="address-strip">
     <div class="address-icon">📍</div>
     <div class="address-text">
-      <strong>Kapada Hospital Linen Centre</strong>
+      <strong>Kapada Hospital</strong>
       Falcha Marg, Chamati-16, Banasthali, Kathmandu
     </div>
   </div>
 
-  <a href="tel:014524365" class="phone-pill">
-    📞 &nbsp; 01-4524365
-  </a>
+  <!-- Two phone numbers side by side -->
+  <div class="phone-group">
+    <a href="tel:014524365" class="phone-pill">📞 01-4524365</a>
+    <a href="tel:9801471017" class="phone-pill">📞 9801471017</a>
+  </div>
 
   <div class="footer">
-    © 2025 Kapada Hospital &nbsp;·&nbsp; All rights reserved
+    © <span id="year"></span> Kapada Hospital &nbsp;·&nbsp; All rights reserved
   </div>
 
 </div>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
